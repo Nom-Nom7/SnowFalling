@@ -1,12 +1,16 @@
 class Snow{
     constructor(x,y){
-        var options = {restitution: 1,friction: 0,isStatic:false}
-
+        var options = {
+            'restitution' : 0.7,
+            'friction' : 0.5,
+            
+        }
     this.image= loadImage("snow4.webp");
-    this.radius = 10;
-    this.lifetime = 1000;
-    this.body = Bodies.circle(x,y,this.radius,options); 
-    World.add(world,this.body);
+    this.body = Bodies.circle(x,y,40,40,20,options);
+    
+    this.radius = 20;
+    this.lifetime=1000;
+    World.add (world,this.body);
     }
     
     changePosition(){
@@ -18,7 +22,7 @@ class Snow{
         push();
         
         var pos = this.body.position;
-    
+
         imageMode(CENTER);
         image(this.image,pos.x,pos.y,this.radius,this.radius);
     pop();
